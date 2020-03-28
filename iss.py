@@ -37,11 +37,9 @@ def locate_iss_spacestation():
     return lon, lat, time
 
 
-
-
-
 def main():
-    pass
+    get_astronauts_info()
+    locate_iss_spacestation()
 
 
 if __name__ == '__main__':
