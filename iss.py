@@ -19,10 +19,25 @@ def get_astronauts_info():
         spacecraft = hero['craft']
         print(f'Name: {name}, Spacecraft: {spacecraft}')
     print(f'Total Number of Astronauts: {number_of_astronauts}')
+    return r
 
 
-    # return r
-get_astronauts_info()
+def locate_iss_spacestation():
+    """
+    Get the current geographic coordinates (lat/lon) of the space station, along with a timestamp.
+    """
+    r = requests.get('http://api.open-notify.org/iss-now.json').json()
+    lon = r["iss_position"]["longitude"]
+    lat = r["iss_position"]['latitude']
+    time = r['timestamp']
+
+    print(
+        f'The spacestation is currently located at the following coordinates: {lat}, {lon}.')
+    print(f'The current timestamp is: {time}')
+    return lon, lat, time
+
+
+
 
 
 def main():
